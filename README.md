@@ -1,1 +1,1 @@
-# Full-stack-project-springboot-CharApp
+# Full-stack-project-springboot-ChatApp
