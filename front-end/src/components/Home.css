@@ -1,0 +1,6 @@
+.hover-gradient:hover {
+  text-shadow: 5px 5px 0px rgba(16, 87, 135, 0.8), -2px -2px 4px rgba(81, 15, 110, 0.8);
+  transition: text-shadow 0.3s ease-in-out;
+  -webkit-background-clip: text;
+  cursor: pointer;
+}
