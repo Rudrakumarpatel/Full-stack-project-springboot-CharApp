@@ -1,7 +1,6 @@
 # ChatApplication
 Spring boot websocket backend and reactjs client
 
-[Tutorial Link](https://youtu.be/o_IjEDAuo8Y)
 
 Server:
     - Spring boot Websocket
@@ -10,8 +9,6 @@ Client
     - ReactJS
 
 ## ReactJS screen
-
-![Chat screen](img/chat_screen.jpg "Chat screen")
 
 To start:
     
