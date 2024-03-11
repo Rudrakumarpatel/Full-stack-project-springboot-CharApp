@@ -16,6 +16,7 @@ const ChatRoom = () => {
     message: "",
     file:"",
     email:"",
+    image:"",
   });
   const [file,setfile] = useState(false);
   useEffect(() => {
