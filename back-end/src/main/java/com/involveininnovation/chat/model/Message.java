@@ -2,6 +2,7 @@ package com.involveininnovation.chat.model;
 
 import lombok.*;
 
+import java.sql.Blob;
 import java.util.Date;
 
 @NoArgsConstructor
@@ -15,4 +16,5 @@ public class Message {
     private String message;
     private String date;
     private Status status;
+    private Blob image;
 }

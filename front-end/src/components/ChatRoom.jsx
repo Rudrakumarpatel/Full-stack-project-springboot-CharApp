@@ -7,7 +7,7 @@ import "./ChatRoom.css";
 var stompClient = null;
 const ChatRoom = () => {
   const [privateChats, setPrivateChats] = useState(new Map());
-  const [publicChats, setPublicChats] = useState([]);
+  const [publicChats, setPublicChats] = useState([]);cd 
   const [tab, setTab] = useState("CHATROOM");
   const [userData, setUserData] = useState({
     username: "",
@@ -15,6 +15,7 @@ const ChatRoom = () => {
     connected: false,
     message: "",
     file:"",
+    email:"",
   });
   const [file,setfile] = useState(false);
   useEffect(() => {
@@ -115,13 +116,9 @@ const ChatRoom = () => {
     }
   };
 
-  const handleUsername = (event) => {
-    const { value } = event.target;
-    setUserData({ ...userData, username: value });
-  };
 
   const registerUser = (e) => {
-    e.preventDefault();
+    console.log(userData);
     connect();
   };
   return (
@@ -238,8 +235,8 @@ const ChatRoom = () => {
       ) : (
         <Login
           userData={userData}
+          setUserData={setUserData}
           registerUser={registerUser}
-          handleUsername={handleUsername}
         ></Login>
       )}
     </div>

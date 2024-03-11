@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 
-function Login({ userData, registerUser, handleUsername, handleEmail }) {
+function Login({userData, setUserData,registerUser, handleEmail }) {
+
+  const [useLogin,setLogin] = useState({
+    username:"",
+    email:"",
+  })
+ 
+  const handleChange = (event) => 
+  {
+    setLogin({...useLogin,[event.target.name]:event.target.value});  
+   
+    setUserData({...userData,[event.target.name]:event.target.value});
+  };
+  const LoginUser = (e)=>
+  {
+    e.preventDefault();
+    //check for Login 
+    registerUser();
+  }
   return (
     <>
       <div className="flex justify-center items-center w-screen h-screen bg-white">
@@ -14,7 +32,7 @@ function Login({ userData, registerUser, handleUsername, handleEmail }) {
           {/* Added mx-auto for centering */}
           <form
             className="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4"
-            onSubmit={registerUser}
+            onSubmit={LoginUser}
           >
             <div className="mb-4">
               <label
@@ -26,10 +44,11 @@ function Login({ userData, registerUser, handleUsername, handleEmail }) {
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="username"
+                name="username"
                 type="text"
                 placeholder="Enter your username"
-                value={userData.username}
-                onChange={handleUsername}
+                value={useLogin.username}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -43,10 +62,11 @@ function Login({ userData, registerUser, handleUsername, handleEmail }) {
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="email"
+                name="email"
                 type="email"
                 placeholder="Enter your email address"
-                value={userData.email}
-                onChange={handleEmail}
+                value={useLogin.email}
+                onChange={handleChange}
                 required
               />
             </div>
