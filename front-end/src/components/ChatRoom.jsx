@@ -7,7 +7,7 @@ import "./ChatRoom.css";
 var stompClient = null;
 const ChatRoom = () => {
   const [privateChats, setPrivateChats] = useState(new Map());
-  const [publicChats, setPublicChats] = useState([]);cd 
+  const [publicChats, setPublicChats] = useState([]);
   const [tab, setTab] = useState("CHATROOM");
   const [userData, setUserData] = useState({
     username: "",
@@ -16,12 +16,12 @@ const ChatRoom = () => {
     message: "",
     file:"",
     email:"",
-    image:"",
   });
   const [file,setfile] = useState(false);
+
   useEffect(() => {
     console.log(userData);
-  }, [userData]);
+  }, []);
 
   const connect = () => {
     let Sock = new SockJS("http://localhost:9090/ws");
@@ -84,6 +84,14 @@ const ChatRoom = () => {
   const handleMessage = (event) => {
     setUserData({ ...userData, [event.target.name]:event.target.value });
   };
+
+  const handleFile = (event)=>
+  {
+    setfile(true);
+    console.log(file);
+    setUserData({ ...userData, [event.target.name]:event.target.value });
+  }
+
   const sendValue = () => {
     if (stompClient) {
       console.log("h");
@@ -91,11 +99,12 @@ const ChatRoom = () => {
         senderName: userData.username,
         message: userData.message,
         status: "MESSAGE",
-        file:userData.file
       };
       console.log(chatMessage);
       stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
-      setUserData({ ...userData, message: "" });
+      setUserData({ ...userData, message: ""});
+      // setUserData({ ...userData, file: ""});
+
     }
   };
 
@@ -114,6 +123,7 @@ const ChatRoom = () => {
       }
       stompClient.send("/app/private-message", {}, JSON.stringify(chatMessage));
       setUserData({ ...userData, message: "" });
+      // setUserData({ ...userData, file: ""});
     }
   };
 
@@ -181,7 +191,7 @@ const ChatRoom = () => {
                   onChange={handleMessage}
                 >
                 </input>
-                <input type="file" id="file" name="file" onChange={handleMessage} />
+                <input type="file" id="file" name="file" onChange={handleFile} />
                 <button
                   type="button"
                   className="send-button Button"
@@ -222,6 +232,7 @@ const ChatRoom = () => {
                   name="message"
                   onChange={handleMessage}
                 />
+                <input type="file" id="file" name="file" onChange={handleFile} />
                 <button
                   type="button"
                   className="send-button Button"
@@ -235,7 +246,7 @@ const ChatRoom = () => {
         </div>
       ) : (
         <Login
-          userData={userData}
+         userData = {userData}
           setUserData={setUserData}
           registerUser={registerUser}
         ></Login>

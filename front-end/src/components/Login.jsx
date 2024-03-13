@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 
-function Login({userData, setUserData,registerUser, handleEmail }) {
+function Login({userData,setUserData,registerUser, handleEmail }) {
 
   const [useLogin,setLogin] = useState({
     username:"",
@@ -10,14 +10,14 @@ function Login({userData, setUserData,registerUser, handleEmail }) {
  
   const handleChange = (event) => 
   {
+    setUserData({...userData,[event.target.name]:event.target.value})
     setLogin({...useLogin,[event.target.name]:event.target.value});  
-   
-    setUserData({...userData,[event.target.name]:event.target.value});
   };
   const LoginUser = (e)=>
   {
     e.preventDefault();
     //check for Login 
+    localStorage.setItem("userData",JSON.stringify(useLogin));
     registerUser();
   }
   return (

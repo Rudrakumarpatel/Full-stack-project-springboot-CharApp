@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
+import { signup } from '../services/user-services';
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -15,12 +16,21 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Add your signup logic here
+    signup(formData).then((res) => {
+      console.log(res);
+      console.log("success log");
+    }).catch((err) => {
+      console.log(err);
+      console.log("Error log");
+    })
+
     setFormData({
       username: '',
       email: '',
       password: '',
     })
-    // Add your signup logic here
     console.log('Signup form submitted:', formData);
   };
 

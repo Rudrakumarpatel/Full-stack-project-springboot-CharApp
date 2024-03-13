@@ -16,5 +16,5 @@ public class Message {
     private String message;
     private String date;
     private Status status;
-    private Blob image;
+    private Blob file;
 }
