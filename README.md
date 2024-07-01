@@ -34,7 +34,8 @@ Client
 To start:
     
 ### Client
-        - npm install (in the react-client folder)
+        - npm i
+nstall (in the react-client folder)
         - npm start
     
 ### Server
