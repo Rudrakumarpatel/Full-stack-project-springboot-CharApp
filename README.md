@@ -1,4 +1,4 @@
-# ChatApplication
+# TalkWave
 #Backend Development with Spring Boot:
 
 1.Use Spring Boot to create a RESTful API backend that will handle communication between clients, store messages, and manage user authentication.
