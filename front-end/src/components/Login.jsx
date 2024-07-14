@@ -24,9 +24,8 @@ function Login({userData,setUserData,registerUser, handleEmail }) {
     <>
       <div className="flex justify-center items-center w-screen h-screen bg-white">
         <div className="navbar">
-          <Navbar />
+        <Navbar />
         </div>
-
         <div className="w-full max-w-md mx-auto border">
           {" "}
           {/* Added mx-auto for centering */}

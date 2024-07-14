@@ -133,7 +133,7 @@ const ChatRoom = () => {
     connect();
   };
   return (
-    <div className="container">
+    <div className="w-full">
       {userData.connected ? (
         <div className="chat-box">
           <div className="member-list">
